@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VELO — Drive the Future</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Bebas Neue', 'sans-serif'],
+            body: ['DM Sans', 'sans-serif'],
+          },
+          colors: {
+            carbon: '#0a0a0a',
+            steel: '#1a1a1a',
+            chrome: '#e8e8e8',
+            accent: '#e63900',
+            gold: '#c9a84c',
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.8s ease forwards',
+            'slide-in': 'slideIn 1s ease forwards',
+            'pulse-slow': 'pulse 3s infinite',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(40px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            slideIn: {
+              '0%': { opacity: '0', transform: 'translateX(-60px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'DM Sans', sans-serif; background: #0a0a0a; }
+    h1, h2, h3, .font-display { font-family: 'Bebas Neue', sans-serif; }
+
+    .hero-bg {
+      background: radial-gradient(ellipse 80% 60% at 60% 50%, #1c1c1c 0%, #0a0a0a 70%),
+        linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    }
+    .red-glow { text-shadow: 0 0 80px rgba(230, 57, 0, 0.5); }
+    .card-glass {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      backdrop-filter: blur(10px);
+    }
+    .stripe-line {
+      background: linear-gradient(90deg, transparent, #e63900, transparent);
+      height: 1px;
+    }
+    .number-stat { font-family: 'Bebas Neue', sans-serif; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #e63900; border-radius: 2px; }
+
+    /* Stagger animations */
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.25s; }
+    .stagger-3 { animation-delay: 0.4s; }
+    .stagger-4 { animation-delay: 0.55s; }
+
+    .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="text-chrome overflow-x-hidden">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-5"
+       style="background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);">
+    <span class="font-display text-3xl tracking-widest text-white">VELO</span>
+    <div class="hidden md:flex gap-10 text-sm font-medium tracking-widest uppercase text-chrome/60">
+      <a href="#specs" class="hover:text-accent transition-colors">Specs</a>
+      <a href="#features" class="hover:text-accent transition-colors">Features</a>
+      <a href="#gallery" class="hover:text-accent transition-colors">Gallery</a>
+      <a href="#order" class="hover:text-accent transition-colors">Order</a>
+    </div>
+    <a href="#order"
+       class="px-6 py-2 border border-accent text-accent text-sm font-semibold tracking-widest uppercase hover:bg-accent hover:text-white transition-all duration-300">
+      Configure
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-bg min-h-screen flex items-center relative overflow-hidden px-8">
+    <!-- Background grid -->
+    <div class="absolute inset-0 opacity-5"
+         style="background-image: linear-gradient(#e63900 1px, transparent 1px), linear-gradient(90deg, #e63900 1px, transparent 1px); background-size: 80px 80px;"></div>
+
+    <!-- Side label -->
+    <div class="absolute right-10 top-1/2 -translate-y-1/2 writing-mode-vertical hidden lg:flex flex-col items-center gap-3">
+      <div class="w-px h-20 bg-accent/40"></div>
+      <span class="text-xs tracking-[0.4em] uppercase text-chrome/30 rotate-90 whitespace-nowrap">2025 Edition</span>
+      <div class="w-px h-20 bg-accent/40"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center pt-20">
+      <!-- Text -->
+      <div class="z-10">
+        <p class="text-accent text-xs tracking-[0.5em] uppercase mb-6 opacity-0 animate-fade-up stagger-1">
+          ● Introducing the New Era
+        </p>
+        <h1 class="font-display text-[clamp(5rem,12vw,10rem)] leading-none text-white red-glow opacity-0 animate-fade-up stagger-2">
+          VELO<br/>
+          <span class="text-accent">GTS</span><br/>
+          <span class="text-chrome/20">900</span>
+        </h1>
+        <div class="stripe-line my-8 w-40 opacity-0 animate-fade-up stagger-3"></div>
+        <p class="text-chrome/50 text-lg font-light leading-relaxed max-w-md opacity-0 animate-fade-up stagger-3">
+          900 horsepower. 2.3 seconds to 60 mph.
+          Built from aerospace-grade carbon fiber and pure obsession.
+        </p>
+        <div class="flex gap-4 mt-10 opacity-0 animate-fade-up stagger-4">
+          <a href="#order"
+             class="px-8 py-4 bg-accent text-white font-semibold tracking-widest uppercase text-sm hover:bg-red-600 transition-colors">
+            Order Now
+          </a>
+          <a href="#specs"
+             class="px-8 py-4 border border-chrome/20 text-chrome/60 font-semibold tracking-widest uppercase text-sm hover:border-chrome/60 hover:text-chrome transition-colors">
+            View Specs
+          </a>
+        </div>
+      </div>
+
+      <!-- Car SVG / Visual -->
+      <div class="relative flex items-center justify-center opacity-0 animate-slide-in stagger-2">
+        <div class="absolute w-96 h-96 rounded-full bg-accent/5 blur-3xl"></div>
+        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-2xl drop-shadow-2xl">
+          <!-- Ground shadow -->
+          <ellipse cx="400" cy="370" rx="320" ry="18" fill="#e63900" opacity="0.08"/>
+          <!-- Car body -->
+          <path d="M80 280 Q120 200 200 170 L310 130 Q370 110 430 112 L570 120 Q650 130 680 160 L740 220 L750 280 Z"
+                fill="#1a1a1a" stroke="#e63900" stroke-width="1.5" opacity="0.95"/>
+          <!-- Roof -->
+          <path d="M240 170 Q300 110 370 100 L480 98 Q540 100 580 130 L640 170 Z"
+                fill="#111" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <!-- Windshield -->
+          <path d="M255 170 Q310 112 375 102 L478 100 Q530 102 565 128 L615 170 Z"
+                fill="#1c3a4a" opacity="0.7"/>
+          <!-- Side windows -->
+          <path d="M230 175 L255 175 L250 220 L220 218 Z" fill="#1c3a4a" opacity="0.5"/>
+          <path d="M620 175 L645 175 L650 218 L618 220 Z" fill="#1c3a4a" opacity="0.5"/>
+          <!-- Front hood detail -->
+          <path d="M80 280 L120 230 Q140 215 180 210 L210 210 L200 175 Q170 170 140 195 L90 260 Z"
+                fill="#151515" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+          <!-- Door lines -->
+          <line x1="380" y1="160" x2="375" y2="275" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <line x1="500" y1="155" x2="498" y2="275" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <!-- Exhaust / rear details -->
+          <rect x="720" y="265" width="30" height="6" rx="3" fill="#e63900" opacity="0.8"/>
+          <rect x="720" y="275" width="30" height="6" rx="3" fill="#e63900" opacity="0.5"/>
+          <!-- Front splitter -->
+          <path d="M75 278 L90 285 L80 290 Z" fill="#e63900"/>
+          <!-- Headlights -->
+          <path d="M82 248 Q90 240 105 238 L120 238 L118 255 L83 258 Z" fill="#fff" opacity="0.9"/>
+          <line x1="122" y1="246" x2="160" y2="244" stroke="#fff" stroke-width="1.5" opacity="0.4"/>
+          <!-- Taillights -->
+          <path d="M730 235 Q745 240 748 258 L728 262 L726 240 Z" fill="#e63900" opacity="0.9"/>
+          <!-- Wheel arches -->
+          <path d="M155 282 Q160 240 210 238 Q258 236 265 282 Z" fill="#0e0e0e" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <path d="M535 278 Q540 236 590 234 Q638 232 645 278 Z" fill="#0e0e0e" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <!-- Front wheel -->
+          <circle cx="210" cy="305" r="50" fill="#111" stroke="#333" stroke-width="3"/>
+          <circle cx="210" cy="305" r="38" fill="#0a0a0a" stroke="#444" stroke-width="2"/>
+          <circle cx="210" cy="305" r="14" fill="#222" stroke="#e63900" stroke-width="2"/>
+          <!-- Wheel spokes front -->
+          <line x1="210" y1="267" x2="210" y2="343" stroke="#555" stroke-width="2.5"/>
+          <line x1="172" y1="305" x2="248" y2="305" stroke="#555" stroke-width="2.5"/>
+          <line x1="183" y1="278" x2="237" y2="332" stroke="#555" stroke-width="2.5"/>
+          <line x1="183" y1="332" x2="237" y2="278" stroke="#555" stroke-width="2.5"/>
+          <!-- Rear wheel -->
+          <circle cx="590" cy="305" r="50" fill="#111" stroke="#333" stroke-width="3"/>
+          <circle cx="590" cy="305" r="38" fill="#0a0a0a" stroke="#444" stroke-width="2"/>
+          <circle cx="590" cy="305" r="14" fill="#222" stroke="#e63900" stroke-width="2"/>
+          <!-- Wheel spokes rear -->
+          <line x1="590" y1="267" x2="590" y2="343" stroke="#555" stroke-width="2.5"/>
+          <line x1="552" y1="305" x2="628" y2="305" stroke="#555" stroke-width="2.5"/>
+          <line x1="563" y1="278" x2="617" y2="332" stroke="#555" stroke-width="2.5"/>
+          <line x1="563" y1="332" x2="617" y2="278" stroke="#555" stroke-width="2.5"/>
+          <!-- Roof spoiler -->
+          <path d="M620 155 L660 160 L658 140 L622 138 Z" fill="#e63900" opacity="0.8"/>
+          <!-- Bottom diffuser -->
+          <path d="M700 280 L750 280 L752 295 L700 292 Z" fill="#e63900" opacity="0.6"/>
+          <!-- Side stripe -->
+          <path d="M150 240 L700 232" stroke="#e63900" stroke-width="1" opacity="0.4" stroke-dasharray="4,8"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+      <span class="text-xs tracking-widest uppercase">Scroll</span>
+      <div class="w-px h-10 bg-chrome animate-pulse-slow"></div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="border-y border-white/5 py-12 px-8">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="text-center animate-on-scroll">
+        <div class="number-stat text-6xl text-accent">900</div>
+        <div class="text-chrome/40 text-xs tracking-widest uppercase mt-1">Horsepower</div>
+      </div>
+      <div class="text-center animate-on-scroll" style="transition-delay:0.1s">
+        <div class="number-stat text-6xl text-white">2.3<span class="text-3xl text-chrome/40">s</span></div>
+        <div class="text-chrome/40 text-xs tracking-widest uppercase mt-1">0–60 mph</div>
+      </div>
+      <div class="text-center animate-on-scroll" style="transition-delay:0.2s">
+        <div class="number-stat text-6xl text-white">220<span class="text-3xl text-chrome/40">mph</span></div>
+        <div class="text-chrome/40 text-xs tracking-widest uppercase mt-1">Top Speed</div>
+      </div>
+      <div class="text-center animate-on-scroll" style="transition-delay:0.3s">
+        <div class="number-stat text-6xl text-white">3,400<span class="text-3xl text-chrome/40">lb</span></div>
+        <div class="text-chrome/40 text-xs tracking-widest uppercase mt-1">Dry Weight</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="py-28 px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16 animate-on-scroll">
+        <p class="text-accent text-xs tracking-[0.5em] uppercase mb-4">● Engineering</p>
+        <h2 class="font-display text-7xl text-white">BUILT<br/><span class="text-chrome/20">DIFFERENT</span></h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="card-glass p-8 group hover:border-accent/30 transition-colors duration-500 animate-on-scroll">
+          <div class="w-12 h-12 bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+            <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-3xl text-white mb-3">TWIN-TURBO V8</h3>
+          <p class="text-chrome/40 text-sm leading-relaxed">Hand-assembled 4.8L twin-turbocharged V8 producing 900bhp and 850Nm of torque. Redlines at 8,400rpm.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="card-glass p-8 group hover:border-accent/30 transition-colors duration-500 animate-on-scroll" style="transition-delay:0.15s">
+          <div class="w-12 h-12 bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+            <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-3xl text-white mb-3">CARBON FIBER</h3>
+          <p class="text-chrome/40 text-sm leading-relaxed">Monocoque chassis and body panels crafted from aerospace-grade carbon fiber. 40% lighter than steel.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="card-glass p-8 group hover:border-accent/30 transition-colors duration-500 animate-on-scroll" style="transition-delay:0.3s">
+          <div class="w-12 h-12 bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+            <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-3xl text-white mb-3">AI DYNAMICS</h3>
+          <p class="text-chrome/40 text-sm leading-relaxed">Adaptive AI suspension reads the road 500 times per second, adjusting damping in real-time for perfect handling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECS -->
+  <section id="specs" class="py-28 px-8 bg-steel/30">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+      <div class="animate-on-scroll">
+        <p class="text-accent text-xs tracking-[0.5em] uppercase mb-4">● Technical Data</p>
+        <h2 class="font-display text-7xl text-white mb-12">FULL<br/>SPECS</h2>
+        <div class="space-y-0">
+          {[
+            ['Engine', '4.8L Twin-Turbo V8'],
+            ['Power Output', '900 bhp @ 7,200 rpm'],
+            ['Torque', '850 Nm @ 4,400 rpm'],
+            ['Transmission', '8-Speed Dual Clutch'],
+            ['Drive', 'All-Wheel Drive'],
+            ['0–60 mph', '2.3 seconds'],
+            ['Top Speed', '220 mph (355 km/h)'],
+            ['Weight', '3,400 lbs (1,542 kg)'],
+            ['Wheelbase', '107.5 in (2,731 mm)'],
+            ['Brakes', 'Carbon Ceramic'],
+          ].map(([k, v]) => `
+            <div class="flex justify-between py-4 border-b border-white/5 group hover:border-accent/20 transition-colors">
+              <span class="text-chrome/40 text-sm tracking-wide">${k}</span>
+              <span class="text-chrome text-sm font-medium">${v}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      <div class="animate-on-scroll" style="transition-delay:0.2s">
+        <!-- Color swatches -->
+        <div class="card-glass p-8">
+          <h3 class="font-display text-2xl text-chrome/40 mb-6">AVAILABLE FINISHES</h3>
+          <div class="grid grid-cols-3 gap-4">
+            <div class="group cursor-pointer">
+              <div class="h-20 rounded-sm mb-2 border border-white/10 group-hover:border-accent/50 transition-colors" style="background: #1a1a1a;"></div>
+              <p class="text-chrome/40 text-xs tracking-wide">Midnight</p>
+            </div>
+            <div class="group cursor-pointer">
+              <div class="h-20 rounded-sm mb-2 border border-white/10 group-hover:border-accent/50 transition-colors" style="background: linear-gradient(135deg, #b0b0b0, #e8e8e8);"></div>
+              <p class="text-chrome/40 text-xs tracking-wide">Arctic Silver</p>
+            </div>
+            <div class="group cursor-pointer">
+              <div class="h-20 rounded-sm mb-2 border border-accent/40 group-hover:border-accent transition-colors" style="background: #e63900;"></div>
+              <p class="text-accent text-xs tracking-wide">Inferno Red ✓</p>
+            </div>
+            <div class="group cursor-pointer">
+              <div class="h-20 rounded-sm mb-2 border border-white/10 group-hover:border-accent/50 transition-colors" style="background: #1a2a4a;"></div>
+              <p class="text-chrome/40 text-xs tracking-wide">Deep Navy</p>
+            </div>
+            <div class="group cursor-pointer">
+              <div class="h-20 rounded-sm mb-2 border border-white/10 group-hover:border-accent/50 transition-colors" style="background: linear-gradient(135deg, #c9a84c, #e8c96a);"></div>
+              <p class="text-chrome/40 text-xs tracking-wide">Gold Edition</p>
+            </div>
+            <div class="group cursor-pointer">
+              <div class="h-20 rounded-sm mb-2 border border-white/10 group-hover:border-accent/50 transition-colors" style="background: #2a2a2a; background-image: repeating-linear-gradient(45deg, #1a1a1a 0, #1a1a1a 1px, #2a2a2a 0, #2a2a2a 50%); background-size: 6px 6px;"></div>
+              <p class="text-chrome/40 text-xs tracking-wide">Raw Carbon</p>
+            </div>
+          </div>
+          <p class="text-chrome/20 text-xs mt-6">Custom colors available on request. Lead time 8–14 weeks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER CTA -->
+  <section id="order" class="py-32 px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+         style="background: radial-gradient(ellipse 60% 60% at 50% 50%, #e63900, transparent);"></div>
+    <div class="max-w-4xl mx-auto text-center relative animate-on-scroll">
+      <p class="text-accent text-xs tracking-[0.5em] uppercase mb-6">● Limited Production</p>
+      <h2 class="font-display text-[clamp(4rem,10vw,8rem)] leading-none text-white mb-8">
+        ONLY 250<br/>UNITS
+      </h2>
+      <div class="stripe-line w-32 mx-auto mb-8"></div>
+      <p class="text-chrome/40 text-lg mb-12 max-w-2xl mx-auto">
+        Starting at $340,000. Configure yours with our specialists and reserve your build slot today.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button
+          onclick="alert('Reservation confirmed! Our team will contact you within 24 hours.')"
+          class="px-12 py-5 bg-accent text-white font-semibold tracking-widest uppercase text-sm hover:bg-red-600 transition-colors">
+          Reserve Your VELO GTS →
+        </button>
+        <button
+          onclick="alert('Connecting you with a specialist...')"
+          class="px-12 py-5 border border-chrome/20 text-chrome/60 font-semibold tracking-widest uppercase text-sm hover:border-chrome/60 hover:text-chrome transition-colors">
+          Talk to a Specialist
+        </button>
+      </div>
+      <p class="text-chrome/20 text-xs mt-8 tracking-wide">$25,000 refundable deposit required to reserve. Delivery Q4 2025.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 px-8 py-12">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <span class="font-display text-3xl tracking-widest text-chrome/20">VELO</span>
+      <p class="text-chrome/20 text-xs tracking-wide">© 2025 VELO Automotive. All rights reserved.</p>
+      <div class="flex gap-6 text-chrome/20 text-xs tracking-widest uppercase">
+        <a href="#" class="hover:text-chrome transition-colors">Privacy</a>
+        <a href="#" class="hover:text-chrome transition-colors">Terms</a>
+        <a href="#" class="hover:text-chrome transition-colors">Press</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Animate elements on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    // Trigger hero animations
+    document.querySelectorAll('.animate-fade-up, .animate-slide-in').forEach(el => {
+      el.style.animationFillMode = 'forwards';
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
